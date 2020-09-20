@@ -17,21 +17,21 @@ class CharCount {
 
 
         if (args.length != 2) {
-            System.out.println("Usage: copy <src> <dst>");
+            System.out.println("Usage: charcount <src>\n");
             return;
         }
 
 
-        if (args[0] != null) { // Check <src>
-            srcFilename = args[0];
+        if (args[1] != null) { // Check <src>
+            srcFilename = args[1];
             System.out.println("copy: srcFilename = '" + srcFilename + "'");
             srcFile = new File(srcFilename);
             if (!srcFile.canRead()) {
-                System.out.println("copy: Cannot open srcFile '" + srcFilename + "'");
+                System.out.println("charcount: Cannot open srcFile '" + srcFilename + "'");
                 return;
             }
         } else {
-            System.out.println("copy: [OK] srcFilename = '" + srcFilename + "'");
+            System.out.println("charcount: [OK] srcFilename = '" + srcFilename + "'");
         }
 
 
