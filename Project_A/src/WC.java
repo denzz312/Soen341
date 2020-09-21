@@ -1,6 +1,5 @@
 import java.io.*;
 
-
 public class WC {
 
     private static int EOF = -1;
@@ -13,21 +12,20 @@ public class WC {
 
     public static void main(final String[] args) throws IOException {
 
-        int totalLines = 0; 
-        int totalWords = 0; 
+        int totalLines = 0;
+        int totalWords = 0;
         int totalChars = 0;
 
-        if ( args.length < 2 ) {
-			System.out.println("Usage: wc <src> { <src> }\n");
-			return;
+        if (args.length > 2) {
+            System.out.println("Usage: wc <src> { <src> }\n");
+            return;
         }
-        
 
         for (int i = 0; i < args.length; i++) {
-            
+
             if (args[i] != null) { // Check <src>
                 srcFilename = args[i];
-                System.out.println("wc: srcFilename = "+ srcFilename + "");
+                System.out.println("wc: srcFilename = " + srcFilename + "");
                 srcFile = new File(srcFilename);
                 if (!srcFile.canRead()) {
                     System.out.println("wc: Cannot open srcFile '" + srcFilename + "'");
@@ -37,47 +35,43 @@ public class WC {
                 System.out.println("wc: [OK] srcFilename = '" + srcFilename + "'");
             }
 
-
             final FileInputStream srcStream = new FileInputStream(srcFile);
 
-           
-            int  c;
-            int  nChars, nLines, nWords;
+            int c;
+            int nChars, nLines, nWords;
             boolean inWord = false;
             nChars = nLines = nWords = 0;
 
-            while ((c = srcStream.read()) != EOF ) {
+            while ((c = srcStream.read()) != EOF) {
 
-            // Count characters.
-            nChars++;
+                // Count characters.
+                nChars++;
 
-            // Count lines.
-            if (c == '\n') ++nLines;
+                // Count lines.
+                if (c == '\n')
+                    ++nLines;
 
-            // Count words.
-            if (!isSpace(c)) {
+                // Count words.
+                if (!isSpace(c)) {
 
-                if (!inWord) {
+                    if (!inWord) {
 
-                    inWord = true;
-                    ++nWords;
+                        inWord = true;
+                        ++nWords;
+                    }
+
+                } else {
+
+                    inWord = false;
+
                 }
 
-            } else {
-
-                inWord = false;
-
             }
 
-
-  
-            }
-    
             srcStream.close();
-    
+
             // Print the result of the source file.
-            System.out.printf("%s: %d lines, %d words, %d chars\n",
-                srcFilename, nLines, nWords, nChars);
+            System.out.printf("%s: %d lines, %d words, %d chars\n", srcFilename, nLines, nWords, nChars);
 
             totalLines += nLines;
             totalWords += nWords;
@@ -85,13 +79,10 @@ public class WC {
 
         }
 
-
         if (args.length > 2) {
-            System.out.printf("**Total: %d lines, %d words, %d chars\n",
-                totalLines, totalWords, totalChars);
+            System.out.printf("**Total: %d lines, %d words, %d chars\n", totalLines, totalWords, totalChars);
         }
         return;
-
 
     }
 }

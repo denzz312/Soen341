@@ -1,27 +1,26 @@
 import java.io.*;
 
-
 public class WordCount {
 
     private static int EOF = -1;
     private static File srcFile = null;
     private static String srcFilename = "<srcFilename>";
 
-    public static boolean isSpace(int c){
+    public static boolean isSpace(int c) {
 
         return (c == ' ' || c == '\t');
     }
 
     public static void main(String[] args) throws IOException {
 
-        if ( args.length != 2 ) {
-			System.out.println("Usage: linecount <src>\n");
-			return;
+        if (args.length != 1) {
+            System.out.println("Usage: wordcount <src>\n");
+            return;
         }
-        
-        if (args[1] != null) { // Check <src>
-            srcFilename = args[1];
-            System.out.println("wordcount: srcFilename = "+ srcFilename + "");
+
+        if (args[0] != null) { // Check <src>
+            srcFilename = args[0];
+            System.out.println("wordcount: srcFilename = " + srcFilename + "");
             srcFile = new File(srcFilename);
             if (!srcFile.canRead()) {
                 System.out.println("wordcount: Cannot open srcFile '" + srcFilename + "'");
@@ -37,7 +36,7 @@ public class WordCount {
         int nWords = 0;
         boolean inWord = false;
 
-        while ((c = srcStream.read()) != EOF ) {
+        while ((c = srcStream.read()) != EOF) {
 
             if (!isSpace(c)) {
                 if (!inWord) {
@@ -51,10 +50,8 @@ public class WordCount {
 
         srcStream.close();
 
-        System.out.printf("%d words\n", nWords);
-
+        System.out.printf("%d word(s)\n", nWords);
 
     }
 
-    
 }

@@ -8,14 +8,14 @@ public class LineCount {
 
     public static void main(String[] args) throws IOException {
 
-        if ( args.length != 2 ) {
-			System.out.println("Usage: linecount <src>\n");
-			return;
+        if (args.length != 1) {
+            System.out.println("Usage: linecount <src>\n");
+            return;
         }
-        
-        if (args[1] != null) { // Check <src>
-            srcFilename = args[1];
-            System.out.println("linecount: srcFilename = "+ srcFilename + "");
+
+        if (args[0] != null) { // Check <src>
+            srcFilename = args[0];
+            System.out.println("linecount: srcFilename = " + srcFilename + "");
             srcFile = new File(srcFilename);
             if (!srcFile.canRead()) {
                 System.out.println("linecount: Cannot open srcFile '" + srcFilename + "'");
@@ -25,25 +25,20 @@ public class LineCount {
             System.out.println("linecount: [OK] srcFilename = '" + srcFilename + "'");
         }
 
-        
         final FileInputStream srcStream = new FileInputStream(srcFile);
         // Execute the character count.
         int c;
-        int nChars = 0;
+        int nLines = 0;
 
         while ((c = srcStream.read()) != EOF) {
-            nChars++;
+            if (c == '\n')
+                ++nLines;
         }
 
         srcStream.close();
 
-        System.out.printf("%d characters\n", nChars);
+        System.out.printf("%d line(s)\n", nLines);
 
     }
-    
-
-
-
-
 
 }

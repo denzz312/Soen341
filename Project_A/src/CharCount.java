@@ -1,29 +1,24 @@
 // charcount.c - Count characters in a sourcefile
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 class CharCount {
 
-
     private static int EOF = -1;
     private static File srcFile = null;
     private static String srcFilename = "<srcFilename>";
 
-
     public static void main(String[] args) throws IOException {
 
-
-        if (args.length != 2) {
+        if (args.length != 1) {
             System.out.println("Usage: charcount <src>\n");
             return;
         }
 
-
-        if (args[1] != null) { // Check <src>
-            srcFilename = args[1];
+        if (args[0] != null) { // Check <src>
+            srcFilename = args[0];
             System.out.println("copy: srcFilename = '" + srcFilename + "'");
             srcFile = new File(srcFilename);
             if (!srcFile.canRead()) {
@@ -34,9 +29,7 @@ class CharCount {
             System.out.println("charcount: [OK] srcFilename = '" + srcFilename + "'");
         }
 
-
         final FileInputStream srcStream = new FileInputStream(srcFile);
-
 
         // Execute the character count.
         int c;
