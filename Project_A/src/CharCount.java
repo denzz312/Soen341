@@ -10,10 +10,30 @@ class CharCount {
     private static File srcFile = null;
     private static String srcFilename = "<srcFilename>";
 
+    private static void helper() {
+
+        System.out.println("\n");
+        System.out.println("CharCount:\t" + "Usage: java CharCount.java <src>");
+        System.out.println("Copy:\t\t" + "Usage: java Copy.java <src> <dst>");
+        System.out.println("LineCount:\t" + "Usage: java LineCount.java <src>");
+        System.out.println("WordCount:\t" + "Usage: java WordCount.java <src>");
+        System.out.println("WC:\t\t" + "Usage: java WC.java <src> { <src> }");
+
+        System.out.println("\n");
+
+    }
+
     public static void main(String[] args) throws IOException {
 
         if (args.length != 1) {
-            System.out.println("Usage: charcount <src>\n");
+            System.out.println("Usage: CharCount <src>\n");
+            return;
+        }
+
+        boolean isHelper = args[0].equals("-?") || args[0].equals("-h") || args[0].equals("-help");
+
+        if (isHelper) {
+            helper();
             return;
         }
 

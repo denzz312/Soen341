@@ -10,14 +10,34 @@ public class WC {
         return (c == ' ' || c == '\t');
     }
 
+    private static void helper() {
+
+        System.out.println("\n");
+        System.out.println("CharCount:\t" + "Usage: java CharCount.java <src>");
+        System.out.println("Copy:\t\t" + "Usage: java Copy.java <src> <dst>");
+        System.out.println("LineCount:\t" + "Usage: java LineCount.java <src>");
+        System.out.println("WordCount:\t" + "Usage: java WordCount.java <src>");
+        System.out.println("WC:\t\t" + "Usage: java WC.java <src> { <src> }");
+
+        System.out.println("\n");
+
+    }
+
     public static void main(final String[] args) throws IOException {
 
         int totalLines = 0;
         int totalWords = 0;
         int totalChars = 0;
 
-        if (args.length > 2) {
-            System.out.println("Usage: wc <src> { <src> }\n");
+        boolean isHelper = args[0].equals("-?") || args[0].equals("-h") || args[0].equals("-help");
+
+        if (isHelper) {
+            helper();
+            return;
+        }
+
+        if (args.length < 2) {
+            System.out.println("Usage: WC <src> { <src> }\n");
             return;
         }
 
