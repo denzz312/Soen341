@@ -1,5 +1,13 @@
 import java.io.*;
 
+/**
+ * IWordCount
+ */
+public interface IWordCount {
+
+    
+}
+
 public class WordCount {
 
     private static int EOF = -1;
@@ -8,7 +16,7 @@ public class WordCount {
 
     public static boolean isSpace(int c) {
 
-        return (c == ' ' || c == '\t');
+        return (c == ' ' || c == '\t' || c =='\n');
     }
 
     private static void helper() {

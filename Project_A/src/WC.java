@@ -7,7 +7,7 @@ public class WC {
     private static String srcFilename = "<srcFilename>";
 
     public static boolean isSpace(final int c) {
-        return (c == ' ' || c == '\t');
+        return (c == ' ' || c == '\t' || c == '\n');
     }
 
     private static void helper() {

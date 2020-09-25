@@ -6,9 +6,9 @@ public class WordCount {
     private static File srcFile = null;
     private static String srcFilename = "<srcFilename>";
 
-    public static boolean isSpace(int c) {
+    public static boolean isSpace(final int c) {
 
-        return (c == ' ' || c == '\t');
+        return (c == ' ' || c == '\t' || c=='\n');
     }
 
     private static void helper() {
@@ -23,14 +23,14 @@ public class WordCount {
 
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException {
 
         if (args.length != 1) {
             System.out.println("Usage: wordcount <src>\n");
             return;
         }
 
-        boolean isHelper = args[0].equals("-?") || args[0].equals("-h") || args[0].equals("-help");
+        final boolean isHelper = args[0].equals("-?") || args[0].equals("-h") || args[0].equals("-help");
 
         if (isHelper) {
             helper();

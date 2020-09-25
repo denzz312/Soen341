@@ -1,5 +1,13 @@
 import java.io.*;
 
+/**
+ * ILineCount
+ */
+public interface ILineCount {
+
+    
+}
+
 public class LineCount {
 
     private static int EOF = -1;
@@ -48,7 +56,7 @@ public class LineCount {
         final FileInputStream srcStream = new FileInputStream(srcFile);
         // Execute the character count.
         int c;
-        int nLines = 0;
+        int nLines = 1;
 
         while ((c = srcStream.read()) != EOF) {
             if (c == '\n')

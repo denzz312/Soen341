@@ -1,6 +1,14 @@
-// Copy.java - Copy sourceFile to destinationFile
 
 import java.io.*;
+
+
+/**
+ * ICopy
+ */
+public interface ICopy {
+
+    
+}
 
 public class Copy {
     private static int EOF = -1;

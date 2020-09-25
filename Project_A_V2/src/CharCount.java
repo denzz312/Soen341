@@ -4,6 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+/**
+ * ICharCount
+ */
+public interface ICharCount {
+
+    
+}
+
 class CharCount {
 
     private static int EOF = -1;

@@ -1,5 +1,13 @@
 import java.io.*;
 
+/**
+ * IWC
+ */
+public interface IWC {
+
+    
+}
+
 public class WC {
 
     private static int EOF = -1;
