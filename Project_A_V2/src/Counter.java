@@ -1,7 +1,7 @@
 /**
  * ICounter
  */
-public interface ICounter {
+interface ICounter {
 
     
 }

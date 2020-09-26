@@ -3,12 +3,12 @@ import java.io.*;
 /**
  * IWC
  */
-public interface IWC {
+interface IWC {
 
     
 }
 
-public class WC {
+public class WC implements IWC {
 
     private static int EOF = -1;
     private static File srcFile = null;

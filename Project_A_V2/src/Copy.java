@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * ICopy
  */
-public interface ICopy {
+interface ICopy {
 
     
 }

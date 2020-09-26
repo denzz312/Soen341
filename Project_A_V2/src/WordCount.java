@@ -3,7 +3,7 @@ import java.io.*;
 /**
  * IWordCount
  */
-public interface IWordCount {
+interface IWordCount {
 
     
 }

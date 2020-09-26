@@ -7,18 +7,20 @@ import java.io.IOException;
 /**
  * ICharCount
  */
-public interface ICharCount {
+interface ICharCount {
+      void helper();
 
-    
 }
 
-class CharCount {
+class CharCount implements ICharCount {
 
     private static int EOF = -1;
     private static File srcFile = null;
     private static String srcFilename = "<srcFilename>";
 
-    private static void helper() {
+
+
+      public void helper() {
 
         System.out.println("\n");
         System.out.println("CharCount:\t" + "Usage: java CharCount.java <src>");
@@ -31,46 +33,46 @@ class CharCount {
 
     }
 
-    public static void main(final String[] args) throws IOException {
-
-        if (args.length != 1) {
-            System.out.println("Usage: CharCount <src>\n");
-            return;
-        }
-
-        final boolean isHelper = args[0].equals("-?") || args[0].equals("-h") || args[0].equals("-help");
-
-        if (isHelper) {
-            helper();
-            return;
-        }
-
-        if (args[0] != null) { // Check <src>
-            srcFilename = args[0];
-            System.out.println("copy: srcFilename = '" + srcFilename + "'");
-            srcFile = new File(srcFilename);
-            if (!srcFile.canRead()) {
-                System.out.println("charcount: Cannot open srcFile '" + srcFilename + "'");
-                return;
-            }
-        } else {
-            System.out.println("charcount: [OK] srcFilename = '" + srcFilename + "'");
-        }
-
-        final FileInputStream srcStream = new FileInputStream(srcFile);
-
-        // Execute the character count.
-        int c;
-        int nChars = 0;
-
-        while ((c = srcStream.read()) != EOF) {
-            nChars++;
-        }
-
-        srcStream.close();
-
-        System.out.printf("%d characters\n", nChars);
-
-    }
+//    public static void main(final String[] args) throws IOException {
+//
+//        if (args.length != 1) {
+//            System.out.println("Usage: CharCount <src>\n");
+//            return;
+//        }
+//
+//        final boolean isHelper = args[0].equals("-?") || args[0].equals("-h") || args[0].equals("-help");
+//
+//        if (isHelper) {
+//            helper();
+//            return;
+//        }
+//
+//        if (args[0] != null) { // Check <src>
+//            srcFilename = args[0];
+//            System.out.println("copy: srcFilename = '" + srcFilename + "'");
+//            srcFile = new File(srcFilename);
+//            if (!srcFile.canRead()) {
+//                System.out.println("charcount: Cannot open srcFile '" + srcFilename + "'");
+//                return;
+//            }
+//        } else {
+//            System.out.println("charcount: [OK] srcFilename = '" + srcFilename + "'");
+//        }
+//
+//        final FileInputStream srcStream = new FileInputStream(srcFile);
+//
+//        // Execute the character count.
+//        int c;
+//        int nChars = 0;
+//
+//        while ((c = srcStream.read()) != EOF) {
+//            nChars++;
+//        }
+//
+//        srcStream.close();
+//
+//        System.out.printf("%d characters\n", nChars);
+//
+//    }
 
 }

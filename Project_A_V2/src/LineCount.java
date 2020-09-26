@@ -3,7 +3,7 @@ import java.io.*;
 /**
  * ILineCount
  */
-public interface ILineCount {
+interface ILineCount {
 
     
 }

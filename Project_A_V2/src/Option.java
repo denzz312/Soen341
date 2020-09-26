@@ -1,7 +1,7 @@
 /**
  * IOption
  */
-public interface IOption {
+interface IOption {
 
     
 }
