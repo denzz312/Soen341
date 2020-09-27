@@ -5,10 +5,16 @@ import java.io.*;
  */
 interface IWordCount {
 
+    void helper();
+
+    void verbose();
+
+    void banner();
+
     
 }
 
-public class WordCount {
+public class WordCount implements IWordCount {
 
     private static int EOF = -1;
     private static File srcFile = null;
@@ -19,7 +25,7 @@ public class WordCount {
         return (c == ' ' || c == '\t' || c =='\n');
     }
 
-    private static void helper() {
+    public void helper() {
 
         System.out.println("\n");
         System.out.println("CharCount:\t" + "Usage: java CharCount.java <src>");
@@ -31,6 +37,16 @@ public class WordCount {
 
     }
 
+    @Override
+    public void verbose() {
+
+    }
+
+    @Override
+    public void banner() {
+
+    }
+
     public static void main(String[] args) throws IOException {
 
         if (args.length != 1) {
@@ -39,11 +55,11 @@ public class WordCount {
         }
 
         boolean isHelper = args[0].equals("-?") || args[0].equals("-h") || args[0].equals("-help");
-
-        if (isHelper) {
-            helper();
-            return;
-        }
+//
+//        if (isHelper) {
+//            helper();
+//            return;
+//        }
 
         if (args[0] != null) { // Check <src>
             srcFilename = args[0];

@@ -1,39 +1,60 @@
 // charcount.c - Count characters in a sourcefile
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 
 /**
  * ICharCount
  */
 interface ICharCount {
-      void helper();
+
+    void helper();
+
+    void verbose();
+
+    void banner();
 
 }
 
 class CharCount implements ICharCount {
 
+
     private static int EOF = -1;
-    private static File srcFile = null;
-    private static String srcFilename = "<srcFilename>";
+    private static File srcFile;
+//    private static String srcFilename = "<srcFilename>";
 
+    public CharCount(File srcFile) {
 
+        CharCount.srcFile = srcFile;
 
-      public void helper() {
+    }
+
+    @Override
+    public void helper() {
 
         System.out.println("\n");
-        System.out.println("CharCount:\t" + "Usage: java CharCount.java <src>");
-        System.out.println("Copy:\t\t" + "Usage: java Copy.java <src> <dst>");
-        System.out.println("LineCount:\t" + "Usage: java LineCount.java <src>");
-        System.out.println("WordCount:\t" + "Usage: java WordCount.java <src>");
-        System.out.println("WC:\t\t" + "Usage: java WC.java <src> { <src> }");
+        System.out.println("charcount:\t" + "Usage: charcount <src>");
+//        System.out.println("Copy:\t\t" + "Usage: java Copy.java <src> <dst>");
+//        System.out.println("LineCount:\t" + "Usage: java LineCount.java <src>");
+//        System.out.println("WordCount:\t" + "Usage: java WordCount.java <src>");
+//        System.out.println("WC:\t\t" + "Usage: java WC.java <src> { <src> }");
 
         System.out.println("\n");
 
     }
 
-//    public static void main(final String[] args) throws IOException {
+    @Override
+    public void verbose() {
+
+    }
+
+    @Override
+    public void banner() {
+
+    }
+
+
+
+    //    public static void main(final String[] args) throws IOException {
 //
 //        if (args.length != 1) {
 //            System.out.println("Usage: CharCount <src>\n");

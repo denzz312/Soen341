@@ -3,6 +3,8 @@
  */
 interface ICounter {
 
+
+
     
 }
 
