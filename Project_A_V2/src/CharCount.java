@@ -2,31 +2,18 @@
 
 import java.io.File;
 
-/**
- * ICharCount
- */
-interface ICharCount {
-
-    void helper();
-
-    void verbose();
-
-    void banner();
-
-}
-
-class CharCount implements ICharCount {
+class CharCount implements ICounter {
 
 
     private static int EOF = -1;
     private static File srcFile;
 //    private static String srcFilename = "<srcFilename>";
 
-    public CharCount(File srcFile) {
-
-        CharCount.srcFile = srcFile;
-
-    }
+//    public CharCount(File srcFile) {
+//
+//        CharCount.srcFile = srcFile;
+//
+//    }
 
     @Override
     public void helper() {
@@ -49,6 +36,11 @@ class CharCount implements ICharCount {
 
     @Override
     public void banner() {
+
+    }
+
+    @Override
+    public void function() {
 
     }
 

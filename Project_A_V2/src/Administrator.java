@@ -13,14 +13,14 @@ class Administrator {
 
 
     // avoid switch, try to use OOP
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
-        String[] commands = { "charcount", "copy", "linecount", "wordcount", "wc" };
-    
-        String[] helpOption = {"-?" , "-h" , "-help"};
-        String[] verboseOption = {"-v" , "-verbose"};
-        String[] bannerOption = {"-b" , "-banner"};
-        String[][] options = {helpOption,  verboseOption , bannerOption};
+        String[] commands = {"charcount", "copy", "linecount", "wordcount", "wc"};
+
+        String[] helpOption = {"-?", "-h", "-help"};
+        String[] verboseOption = {"-v", "-verbose"};
+        String[] bannerOption = {"-b", "-banner"};
+        String[][] options = {helpOption, verboseOption, bannerOption};
         String[] arguments;
 
 
@@ -32,27 +32,15 @@ class Administrator {
 
         boolean isCommand = Arrays.stream(commands).anyMatch(arguments[0]::equals);
 
-        if(isCommand){
-            System.out.println(arguments[0]);
+        if (!isCommand) {
+            System.out.println("naaah");
         }
-        
 
+        String command = args[0];
 
+        Option op = new Option();
+        ICounter count = op.getOption(command);
 
-
-
-        // if (args.length >= 1 && args.length <= 3) {
-        //     return;
-        // }
-
-        // switch (key) {
-        //     case value:
-
-        //         break;
-
-        //     default:
-        //         break;
-        // }
 
     }
 

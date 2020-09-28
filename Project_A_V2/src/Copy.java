@@ -1,22 +1,16 @@
 
+import org.w3c.dom.css.Counter;
+
 import java.io.*;
-
-
-/**
- * ICopy
- */
-interface ICopy {
-
-    void helper();
-
-    void verbose();
-
-    void banner();
+interface ICopy extends Counter {
 
 
 }
 
-public class Copy implements ICopy {
+//??????
+
+
+public class Copy implements ICounter {
     private static int EOF = -1;
     private static File srcFile = null;
     private static File dstFile = null;
@@ -43,59 +37,64 @@ public class Copy implements ICopy {
 
     }
 
-    public static void main(final String args[]) throws IOException {
+    @Override
+    public void function() {
 
-        // Check the number of arguments.
-        // In Java, the command name 'copy' is considered as an argument.
+    }
 
-        boolean isHelper = args[0].equals("-?") || args[0].equals("-h") || args[0].equals("-help");
-
-//        if (isHelper) {
-//            helper();
+//    public static void main(final String args[]) throws IOException {
+//
+//        // Check the number of arguments.
+//        // In Java, the command name 'copy' is considered as an argument.
+//
+//        boolean isHelper = args[0].equals("-?") || args[0].equals("-h") || args[0].equals("-help");
+//
+////        if (isHelper) {
+////            helper();
+////            return;
+////        }
+//
+//        if (args.length != 2) {
+//            System.out.println("Usage: copy <src> <dst>");
 //            return;
 //        }
-
-        if (args.length != 2) {
-            System.out.println("Usage: copy <src> <dst>");
-            return;
-        }
-
-        // Check if arguments are valid, if the srcFile exists, and if can create the
-        // dstFile.
-        if (args[0] != null) { // Check <src>
-            srcFilename = args[0];
-            System.out.println("copy: srcFilename = '" + srcFilename + "'");
-            srcFile = new File(srcFilename);
-            if (!srcFile.canRead()) {
-                System.out.println("copy: Cannot open srcFile '" + srcFilename + "'");
-                return;
-            }
-        } else {
-            System.out.println("copy: [OK] srcFilename = '" + srcFilename + "'");
-        }
-
-        if (args[1] != null) { // Check <dst>
-            dstFilename = args[1];
-            dstFile = new File(dstFilename);
-        } else {
-            System.out.println("copy: [OK] dstFilename = '" + dstFilename + "'");
-        }
-
-        final FileInputStream srcStream = new FileInputStream(srcFile);
-        final FileOutputStream dstStream = new FileOutputStream(dstFile);
-
-        // Execute the copy.
-        int c;
-
-        while ((c = srcStream.read()) != EOF) {
-            dstStream.write(c);
-            System.out.print('.');
-        }
-
-        // Close and flush all the files.
-        srcStream.close();
-        dstStream.close();
-
-        System.out.println("copy: done.");
-    }
+//
+//        // Check if arguments are valid, if the srcFile exists, and if can create the
+//        // dstFile.
+//        if (args[0] != null) { // Check <src>
+//            srcFilename = args[0];
+//            System.out.println("copy: srcFilename = '" + srcFilename + "'");
+//            srcFile = new File(srcFilename);
+//            if (!srcFile.canRead()) {
+//                System.out.println("copy: Cannot open srcFile '" + srcFilename + "'");
+//                return;
+//            }
+//        } else {
+//            System.out.println("copy: [OK] srcFilename = '" + srcFilename + "'");
+//        }
+//
+//        if (args[1] != null) { // Check <dst>
+//            dstFilename = args[1];
+//            dstFile = new File(dstFilename);
+//        } else {
+//            System.out.println("copy: [OK] dstFilename = '" + dstFilename + "'");
+//        }
+//
+//        final FileInputStream srcStream = new FileInputStream(srcFile);
+//        final FileOutputStream dstStream = new FileOutputStream(dstFile);
+//
+//        // Execute the copy.
+//        int c;
+//
+//        while ((c = srcStream.read()) != EOF) {
+//            dstStream.write(c);
+//            System.out.print('.');
+//        }
+//
+//        // Close and flush all the files.
+//        srcStream.close();
+//        dstStream.close();
+//
+//        System.out.println("copy: done.");
+//    }
 }
