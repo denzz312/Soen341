@@ -14,30 +14,33 @@ public class WordCount implements ICounter {
 
     public void helper() {
 
-        System.out.println("\n");
-        System.out.println("CharCount:\t" + "Usage: java CharCount.java <src>");
-        System.out.println("Copy:\t\t" + "Usage: java Copy.java <src> <dst>");
-        System.out.println("LineCount:\t" + "Usage: java LineCount.java <src>");
-        System.out.println("WordCount:\t" + "Usage: java WordCount.java <src>");
-        System.out.println("WC:\t\t" + "Usage: java WC.java <src> { <src> }");
-        System.out.println("\n");
+        System.out.println("WordCount Version 1.0\n" +
+                "Copyright (C) ABC Inc 2020. All Rights Reserved. \n" +
+                "Written by Deniz Dinchdonmez");
 
     }
 
     @Override
     public void verbose() {
 
+        System.out.println("Not defined yet");
+
     }
 
     @Override
     public void banner() {
 
+        System.out.println("WordCount Version 1.0\n" +
+                "Copyright (C) ABC Inc 2020. All Rights Reserved. \n" +
+                "Written by Deniz Dinchdonmez");
+
     }
 
     @Override
-    public void function() {
+    public void function(String[] args) {
 
     }
+
 
 //    public static void main(String[] args) throws IOException {
 //

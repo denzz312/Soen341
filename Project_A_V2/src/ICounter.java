@@ -7,7 +7,7 @@ interface ICounter{
 
     void banner();
 
-    void function();
+    void function(String[] args);
 
 }
 

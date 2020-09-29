@@ -1,13 +1,7 @@
 
-import org.w3c.dom.css.Counter;
-
 import java.io.*;
-interface ICopy extends Counter {
+import java.util.Scanner;
 
-
-}
-
-//??????
 
 
 public class Copy implements ICounter {
@@ -30,17 +24,23 @@ public class Copy implements ICounter {
     @Override
     public void verbose() {
 
+        System.out.println("hmmmm");
+
     }
 
     @Override
     public void banner() {
 
+        System.out.println("Copy Version 1.0\n" +
+                        "Copyright (C) ABC Inc 2020. All Rights Reserved. \n" +
+                        "Written by Deniz Dinchdonmez");
     }
 
     @Override
-    public void function() {
+    public void function(String[] args) {
 
     }
+
 
 //    public static void main(final String args[]) throws IOException {
 //

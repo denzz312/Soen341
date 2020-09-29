@@ -11,36 +11,98 @@ import java.util.Scanner;
 
 class Administrator {
 
+    static String[] commands = {"charcount", "copy", "linecount", "wordcount", "wc"};
+
+    static String[] helpOption = {"-?", "-h", "-help"};
+    static String[] verboseOption = {"-v", "-verbose"};
+    static String[] bannerOption = {"-b", "-banner"};
+    static String[][] options = {helpOption, verboseOption, bannerOption};
+
 
     // avoid switch, try to use OOP
     public static void main(String[] args) {
 
-        String[] commands = {"charcount", "copy", "linecount", "wordcount", "wc"};
 
-        String[] helpOption = {"-?", "-h", "-help"};
-        String[] verboseOption = {"-v", "-verbose"};
-        String[] bannerOption = {"-b", "-banner"};
-        String[][] options = {helpOption, verboseOption, bannerOption};
+
         String[] arguments;
 
 
         Scanner sc = new Scanner(System.in);
         arguments = sc.nextLine().split(" ");
-        for (int i = 0; i < arguments.length; i++) {
-            System.out.println(arguments[i]);
+        for (String argument : arguments) {
+            System.out.println(argument);
         }
 
-        boolean isCommand = Arrays.stream(commands).anyMatch(arguments[0]::equals);
 
-        if (!isCommand) {
-            System.out.println("naaah");
+        if (!isCommand(arguments[0])) {
+            showCommands();
         }
 
-        String command = args[0];
+        if(arguments.length<2 || arguments.length>6){
+            showCommands();
+            System.exit(0);
+        }
+
+        String command = arguments[0];
 
         Option op = new Option();
         ICounter count = op.getOption(command);
 
+        count.banner();
+
+
+    }
+
+    static boolean isCommand(String strs){
+
+        return Arrays.asList(commands).contains(strs);
+    }
+
+    static boolean isHelp(String[] strs){
+
+        boolean isHelp = false;
+        for (String str : strs) {
+            if (Arrays.asList(helpOption).contains(str)) {
+                isHelp = true;
+                break;
+            }
+        }
+        return isHelp;
+    }
+
+    static boolean isVerbose(String[] strs){
+
+        boolean isVerbose = false;
+        for (String str : strs) {
+            if (Arrays.asList(verboseOption).contains(str)) {
+                isVerbose = true;
+                break;
+            }
+        }
+        return isVerbose;
+    }
+
+    static boolean isBanner(String[] strs){
+
+        boolean isBanner = false;
+        for (String str : strs) {
+            if (Arrays.asList(bannerOption).contains(str)) {
+                isBanner = true;
+                break;
+            }
+        }
+        return isBanner;
+    }
+
+    public static void showCommands(){
+
+        System.out.println("\n");
+        System.out.println("CharCount:\t" + "Usage: java CharCount.java <src>");
+        System.out.println("Copy:\t\t" + "Usage: java Copy.java <src> <dst>");
+        System.out.println("LineCount:\t" + "Usage: java LineCount.java <src>");
+        System.out.println("WordCount:\t" + "Usage: java WordCount.java <src>");
+        System.out.println("WC:\t\t" + "Usage: java WC.java <src> { <src> }");
+        System.out.println("\n");
 
     }
 

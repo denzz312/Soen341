@@ -1,4 +1,4 @@
-import java.io.*;
+import java.io.File;
 
 
 public class LineCount implements ICounter{
@@ -20,17 +20,33 @@ public class LineCount implements ICounter{
     @Override
     public void verbose() {
 
+        System.out.println("Not defined yet");
+
     }
 
     @Override
     public void banner() {
 
+        System.out.println("LineCount Version 1.0\n" +
+                "Copyright (C) ABC Inc 2020. All Rights Reserved. \n" +
+                "Written by Deniz Dinchdonmez");
+
     }
 
     @Override
-    public void function() {
+    public void function(String[] args) {
+
+        if(args.length != 1){
+            Administrator.showCommands();
+            System.exit(0);
+        }
+
+
+
+
 
     }
+
 
 //    public static void main(String[] args) throws IOException {
 //

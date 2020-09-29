@@ -18,29 +18,30 @@ class CharCount implements ICounter {
     @Override
     public void helper() {
 
-        System.out.println("\n");
-        System.out.println("charcount:\t" + "Usage: charcount <src>");
-//        System.out.println("Copy:\t\t" + "Usage: java Copy.java <src> <dst>");
-//        System.out.println("LineCount:\t" + "Usage: java LineCount.java <src>");
-//        System.out.println("WordCount:\t" + "Usage: java WordCount.java <src>");
-//        System.out.println("WC:\t\t" + "Usage: java WC.java <src> { <src> }");
-
-        System.out.println("\n");
+        System.out.println("CharCount Version 1.0\n" +
+                "Copyright (C) ABC Inc 2020. All Rights Reserved. \n" +
+                "Written by Deniz Dinchdonmez");
 
     }
 
     @Override
     public void verbose() {
 
+        System.out.println("Not defined yet");
+
     }
 
     @Override
     public void banner() {
 
+        System.out.println("CharCount Version 1.0\n" +
+                "Copyright (C) ABC Inc 2020. All Rights Reserved. \n" +
+                "Written by Deniz Dinchdonmez");
+
     }
 
     @Override
-    public void function() {
+    public void function(String[] args) {
 
     }
 

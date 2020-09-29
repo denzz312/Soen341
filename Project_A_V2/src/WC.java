@@ -15,7 +15,7 @@ public class WC implements ICounter {
 
         System.out.println("\n");
 
-        System.out.println("WC:\t\t" + "Usage: java WC.java <src> { <src> }");
+        System.out.println("WC:\t" + "wc <src> { <src> }");
 
         System.out.println("\n");
 
@@ -24,17 +24,25 @@ public class WC implements ICounter {
     @Override
     public void verbose() {
 
+        System.out.println("Not defined yet");
+
     }
 
     @Override
     public void banner() {
 
+        System.out.println("WC Version 1.0\n" +
+                "Copyright (C) ABC Inc 2020. All Rights Reserved. \n" +
+                "Written by Deniz Dinchdonmez");
+
     }
 
     @Override
-    public void function() {
+    public void function(String[] args) {
+
 
     }
+
 
 //    public static void main(final String[] args) throws IOException {
 //
