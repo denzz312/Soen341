@@ -20,15 +20,9 @@ class Administrator {
 
 
     // avoid switch, try to use OOP
-    public static void main(String[] args) {
+    public static void administer(String[] arguments) {
 
 
-
-        String[] arguments;
-
-
-        Scanner sc = new Scanner(System.in);
-        arguments = sc.nextLine().split(" ");
         for (String argument : arguments) {
             System.out.println(argument);
         }
@@ -48,7 +42,7 @@ class Administrator {
         Option op = new Option();
         ICounter count = op.getOption(command);
 
-        count.banner();
+        count.count(arguments[1]);
 
 
     }

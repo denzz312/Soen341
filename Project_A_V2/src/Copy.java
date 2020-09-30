@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 
-public class Copy implements ICounter {
+public class Copy {
     private static int EOF = -1;
     private static File srcFile = null;
     private static File dstFile = null;
@@ -21,14 +21,12 @@ public class Copy implements ICounter {
 
     }
 
-    @Override
     public void verbose() {
 
         System.out.println("hmmmm");
 
     }
 
-    @Override
     public void banner() {
 
         System.out.println("Copy Version 1.0\n" +
@@ -36,7 +34,6 @@ public class Copy implements ICounter {
                         "Written by Deniz Dinchdonmez");
     }
 
-    @Override
     public void function(String[] args) {
 
     }

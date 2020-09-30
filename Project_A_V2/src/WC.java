@@ -38,7 +38,7 @@ public class WC implements ICounter {
     }
 
     @Override
-    public void function(String[] args) {
+    public void count(String args) {
 
 
     }

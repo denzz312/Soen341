@@ -1,19 +1,12 @@
 // charcount.c - Count characters in a sourcefile
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
-class CharCount implements ICounter {
-
-
-    private static int EOF = -1;
-    private static File srcFile;
-//    private static String srcFilename = "<srcFilename>";
-
-//    public CharCount(File srcFile) {
-//
-//        CharCount.srcFile = srcFile;
-//
-//    }
+class CharCount extends Counter implements ICounter {
 
     @Override
     public void helper() {
@@ -41,7 +34,24 @@ class CharCount implements ICounter {
     }
 
     @Override
-    public void function(String[] args) {
+    public void count(String argument) {
+
+
+        Scanner sc = getScanner(argument);
+
+        // Execute the character count.
+        String chars;
+        int nChars = 0;
+
+        while (sc.hasNext()) {
+            chars = sc.next();
+            System.out.println(chars);
+            nChars+=chars.length();
+        }
+
+        sc.close();
+
+        System.out.printf("%d characters\n", nChars);
 
     }
 

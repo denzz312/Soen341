@@ -1,7 +1,11 @@
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
 
 
-public class LineCount implements ICounter{
+public class LineCount extends Counter implements ICounter {
 
     private static int EOF = -1;
     private static File srcFile = null;
@@ -34,15 +38,21 @@ public class LineCount implements ICounter{
     }
 
     @Override
-    public void function(String[] args) {
+    public void count(String argument) {
 
-        if(args.length != 1){
-            Administrator.showCommands();
-            System.exit(0);
+        Scanner sc = getScanner(argument);
+        String line = "";
+        int nLines = 0;
+
+        while (sc.hasNextLine()) {
+            line = sc.nextLine();
+            System.out.println(line);
+            nLines++;
         }
 
+        sc.close();
 
-
+        System.out.printf("%d line(s)\n", nLines);
 
 
     }

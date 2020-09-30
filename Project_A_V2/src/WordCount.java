@@ -1,7 +1,8 @@
 import java.io.*;
+import java.util.Scanner;
 
 
-public class WordCount implements ICounter {
+public class WordCount extends Counter implements ICounter {
 
     private static int EOF = -1;
     private static File srcFile = null;
@@ -37,7 +38,21 @@ public class WordCount implements ICounter {
     }
 
     @Override
-    public void function(String[] args) {
+    public void count(String argument) {
+
+        Scanner sc = getScanner(argument);
+        String word = "";
+        int nWords = 0;
+
+        while (sc.hasNext()) {
+            word = sc.next();
+            System.out.println(word);
+            nWords++;
+        }
+
+        sc.close();
+
+        System.out.printf("%d word(s)\n", nWords);
 
     }
 
