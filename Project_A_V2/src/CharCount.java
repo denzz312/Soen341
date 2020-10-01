@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 class CharCount extends Counter implements ICounter {
 
+    static int nChars = 0;
+
     @Override
     public void helper() {
 
@@ -20,8 +22,9 @@ class CharCount extends Counter implements ICounter {
     @Override
     public void verbose() {
 
-        System.out.println("Not defined yet");
-
+        for (int n = 0; n < nChars; n++) {
+            System.out.print("c");
+        }
     }
 
     @Override
@@ -41,7 +44,6 @@ class CharCount extends Counter implements ICounter {
 
         // Execute the character count.
         String chars;
-        int nChars = 0;
 
         while (sc.hasNext()) {
             chars = sc.next();

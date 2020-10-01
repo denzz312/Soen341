@@ -1,4 +1,5 @@
 import java.io.*;
+import java.net.CookieHandler;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -39,10 +40,12 @@ class Administrator {
 
         String command = arguments[0];
 
-        Option op = new Option();
-        ICounter count = op.getOption(command);
+        Command op = new Command();
+        ICommand cm = op.getCommand(command);
 
-        count.count(arguments[1]);
+        cm.verbose();
+        cm.(arguments[1]);
+
 
 
     }

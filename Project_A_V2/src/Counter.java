@@ -2,20 +2,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-interface ICounter {
-
-
-    void helper();
-
-    void verbose();
-
-    void banner();
+interface ICounter extends ICommand {
 
     void count(String args);
 
 }
 
-public class Counter {
+public class Counter extends Command {
 
     Scanner getScanner(String file) {
 

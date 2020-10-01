@@ -1,10 +1,16 @@
 
+
+
+
 import java.io.*;
-import java.util.Scanner;
 
+interface ICopy {
 
+    public void copy(String[] args);
 
-public class Copy {
+}
+
+public class Copy implements ICopy {
     private static int EOF = -1;
     private static File srcFile = null;
     private static File dstFile = null;
@@ -34,7 +40,7 @@ public class Copy {
                         "Written by Deniz Dinchdonmez");
     }
 
-    public void function(String[] args) {
+    public void copy(String[] args) {
 
     }
 
