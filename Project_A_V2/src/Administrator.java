@@ -13,10 +13,9 @@ import java.util.Scanner;
 class Administrator {
 
     static String[] commands = {"charcount", "copy", "linecount", "wordcount", "wc"};
-
-    static String[] helpOption = {"-?", "-h", "-help"};
-    static String[] verboseOption = {"-v", "-verbose"};
-    static String[] bannerOption = {"-b", "-banner"};
+    static String[] helpOption = {"-?", "-h", "-help", "List a summary of all options and their arguments."};
+    static String[] verboseOption = {"-v", "-verbose", "Enable verbose output."};
+    static String[] bannerOption = {"-b", "-banner", "Print the application's banner."};
     static String[][] options = {helpOption, verboseOption, bannerOption};
 
 
@@ -31,31 +30,34 @@ class Administrator {
 
         if (!isCommand(arguments[0])) {
             showCommands();
+            System.exit(0);
         }
 
-        if(arguments.length<2 || arguments.length>6){
+        if (arguments.length < 2 || arguments.length > 6) {
             showCommands();
             System.exit(0);
         }
 
         String command = arguments[0];
-
         Command op = new Command();
+        Command.srcFile = arguments[1];
+
         ICommand cm = op.getCommand(command);
 
-        cm.verbose();
-        cm.(arguments[1]);
 
+
+        cm.process();
+        cm.verbose();
 
 
     }
 
-    static boolean isCommand(String strs){
+    static boolean isCommand(String strs) {
 
         return Arrays.asList(commands).contains(strs);
     }
 
-    static boolean isHelp(String[] strs){
+    static boolean isHelp(String[] strs) {
 
         boolean isHelp = false;
         for (String str : strs) {
@@ -67,7 +69,7 @@ class Administrator {
         return isHelp;
     }
 
-    static boolean isVerbose(String[] strs){
+    static boolean isVerbose(String[] strs) {
 
         boolean isVerbose = false;
         for (String str : strs) {
@@ -79,7 +81,7 @@ class Administrator {
         return isVerbose;
     }
 
-    static boolean isBanner(String[] strs){
+    static boolean isBanner(String[] strs) {
 
         boolean isBanner = false;
         for (String str : strs) {
@@ -91,7 +93,7 @@ class Administrator {
         return isBanner;
     }
 
-    public static void showCommands(){
+    public static void showCommands() {
 
         System.out.println("\n");
         System.out.println("CharCount:\t" + "Usage: java CharCount.java <src>");

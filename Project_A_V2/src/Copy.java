@@ -4,13 +4,13 @@
 
 import java.io.*;
 
-interface ICopy {
+//interface ICopy impl{
+//
+//    public void copy(String[] args);
+//
+//}
 
-    public void copy(String[] args);
-
-}
-
-public class Copy implements ICopy {
+public class Copy implements ICommand {
     private static int EOF = -1;
     private static File srcFile = null;
     private static File dstFile = null;
@@ -38,6 +38,11 @@ public class Copy implements ICopy {
         System.out.println("Copy Version 1.0\n" +
                         "Copyright (C) ABC Inc 2020. All Rights Reserved. \n" +
                         "Written by Deniz Dinchdonmez");
+    }
+
+    @Override
+    public void process() {
+
     }
 
     public void copy(String[] args) {

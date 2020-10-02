@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 interface ICommand {
 
     void helper();
@@ -6,10 +10,13 @@ interface ICommand {
 
     void banner();
 
+    void process();
+
 }
 public class Command {
 
-    String srcFile;
+    static String srcFile;
+    static String dstFile;
 
     public ICommand getCommand(String str){
 
@@ -19,21 +26,29 @@ public class Command {
             return new LineCount();
         }else if (str.equals("wordcount")){
             return new WordCount();
+        }else if (str.equals("copy")){
+            return new Copy();
         }else if(str.equals("wc")) {
             return new WC();
         }
-//        else if (str.equals("copy")){
-//            return new Copy();
-//        }
 
         System.out.println("Please enter an allowed command");
         System.exit(0);
         return null;
 
-
-
     }
 
+    Scanner getScanner(String file) {
+
+        Scanner sc = null;
+        System.out.println("srcFilename = '" + file + "'");
+        try {
+            sc = new Scanner(new File("src/" + file));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return sc;
+    }
 
 
 

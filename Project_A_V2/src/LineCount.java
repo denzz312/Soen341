@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class LineCount extends Counter implements ICounter {
 
     private static int EOF = -1;
-    private static File srcFile = null;
     private static String srcFilename = "<srcFilename>";
 
     public void helper() {
@@ -38,9 +37,9 @@ public class LineCount extends Counter implements ICounter {
     }
 
     @Override
-    public void count(String argument) {
+    public void process() {
 
-        Scanner sc = getScanner(argument);
+        Scanner sc = getScanner(srcFile);
         String line = "";
         int nLines = 0;
 

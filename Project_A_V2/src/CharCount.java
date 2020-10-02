@@ -1,9 +1,4 @@
-// charcount.c - Count characters in a sourcefile
 
-import java.io.BufferedReader;
-import java.io.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 class CharCount extends Counter implements ICounter {
@@ -37,10 +32,10 @@ class CharCount extends Counter implements ICounter {
     }
 
     @Override
-    public void count(String argument) {
+    public void process() {
 
 
-        Scanner sc = getScanner(argument);
+        Scanner sc = getScanner(srcFile);
 
         // Execute the character count.
         String chars;
@@ -48,7 +43,7 @@ class CharCount extends Counter implements ICounter {
         while (sc.hasNext()) {
             chars = sc.next();
             System.out.println(chars);
-            nChars+=chars.length();
+            nChars += chars.length();
         }
 
         sc.close();
@@ -56,49 +51,5 @@ class CharCount extends Counter implements ICounter {
         System.out.printf("%d characters\n", nChars);
 
     }
-
-
-
-    //    public static void main(final String[] args) throws IOException {
-//
-//        if (args.length != 1) {
-//            System.out.println("Usage: CharCount <src>\n");
-//            return;
-//        }
-//
-//        final boolean isHelper = args[0].equals("-?") || args[0].equals("-h") || args[0].equals("-help");
-//
-//        if (isHelper) {
-//            helper();
-//            return;
-//        }
-//
-//        if (args[0] != null) { // Check <src>
-//            srcFilename = args[0];
-//            System.out.println("copy: srcFilename = '" + srcFilename + "'");
-//            srcFile = new File(srcFilename);
-//            if (!srcFile.canRead()) {
-//                System.out.println("charcount: Cannot open srcFile '" + srcFilename + "'");
-//                return;
-//            }
-//        } else {
-//            System.out.println("charcount: [OK] srcFilename = '" + srcFilename + "'");
-//        }
-//
-//        final FileInputStream srcStream = new FileInputStream(srcFile);
-//
-//        // Execute the character count.
-//        int c;
-//        int nChars = 0;
-//
-//        while ((c = srcStream.read()) != EOF) {
-//            nChars++;
-//        }
-//
-//        srcStream.close();
-//
-//        System.out.printf("%d characters\n", nChars);
-//
-//    }
 
 }
