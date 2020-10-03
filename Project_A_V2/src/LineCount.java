@@ -56,6 +56,11 @@ public class LineCount extends Counter implements ICounter {
 
     }
 
+    @Override
+    public void printChars() {
+
+    }
+
 
 //    public static void main(String[] args) throws IOException {
 //

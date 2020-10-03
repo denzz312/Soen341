@@ -3,10 +3,6 @@ import java.io.*;
 
 public class WC implements ICounter {
 
-    private static int EOF = -1;
-    private static File srcFile = null;
-    private static String srcFilename = "<srcFilename>";
-
     public static boolean isSpace(final int c) {
         return (c == ' ' || c == '\t');
     }
@@ -40,6 +36,11 @@ public class WC implements ICounter {
     @Override
     public void process() {
 
+
+    }
+
+    @Override
+    public void printChars() {
 
     }
 

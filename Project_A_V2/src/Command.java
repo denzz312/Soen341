@@ -12,11 +12,18 @@ interface ICommand {
 
     void process();
 
+    void printChars();
+
 }
 public class Command {
 
     static String srcFile;
     static String dstFile;
+    boolean helperIsActive = false;
+    boolean verboseIsActive = false;
+    boolean bannerIsActive = false;
+
+
 
     public ICommand getCommand(String str){
 
@@ -48,6 +55,12 @@ public class Command {
             e.printStackTrace();
         }
         return sc;
+    }
+
+    private void checkOptions(){
+
+
+
     }
 
 

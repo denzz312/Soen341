@@ -1,7 +1,3 @@
-
-
-
-
 import java.io.*;
 
 //interface ICopy impl{
@@ -42,6 +38,11 @@ public class Copy implements ICommand {
 
     @Override
     public void process() {
+
+    }
+
+    @Override
+    public void printChars() {
 
     }
 

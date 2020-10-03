@@ -45,9 +45,9 @@ class Administrator {
         ICommand cm = op.getCommand(command);
 
 
+        cm.verbose();
 
         cm.process();
-        cm.verbose();
 
 
     }

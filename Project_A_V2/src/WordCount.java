@@ -22,9 +22,7 @@ public class WordCount extends Counter implements ICounter {
     @Override
     public void verbose() {
 
-        for (int i = 0; i < nWords; i++) {
-            System.out.print("w");
-        }
+        verboseIsActive = true;
 
     }
 
@@ -43,7 +41,6 @@ public class WordCount extends Counter implements ICounter {
 
         Scanner sc = getScanner(srcFile);
         String word = "";
-//        int nWords = 0;
 
         while (sc.hasNext()) {
             word = sc.next();
@@ -55,6 +52,17 @@ public class WordCount extends Counter implements ICounter {
 
         System.out.printf("%d word(s)\n", nWords);
 
+        if(verboseIsActive)
+            printChars();
+
+    }
+
+
+
+    public void printChars(){
+        for (int i = 0; i < nWords; i++) {
+            System.out.print("w");
+        }
     }
 
 }

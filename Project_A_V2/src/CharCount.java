@@ -17,9 +17,8 @@ class CharCount extends Counter implements ICounter {
     @Override
     public void verbose() {
 
-        for (int n = 0; n < nChars; n++) {
-            System.out.print("c");
-        }
+        verboseIsActive = true;
+
     }
 
     @Override
@@ -50,6 +49,20 @@ class CharCount extends Counter implements ICounter {
 
         System.out.printf("%d characters\n", nChars);
 
+
+
+
+
     }
+
+    @Override
+    public void printChars() {
+
+        for (int n = 0; n < nChars; n++) {
+            System.out.print("c");
+        }
+
+    }
+
 
 }
