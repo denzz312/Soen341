@@ -52,10 +52,13 @@ public class WordCount extends Counter implements ICounter {
 
         System.out.printf("%d word(s)\n", nWords);
 
-        if(verboseIsActive)
-            printChars();
+
+
+//        if(verboseIsActive)
+//            printChars();
 
     }
+
 
 
 

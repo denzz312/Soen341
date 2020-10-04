@@ -1,5 +1,4 @@
 import java.io.*;
-import java.net.CookieHandler;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -27,6 +26,11 @@ class Administrator {
             System.out.println(argument);
         }
 
+        if (containsRepetitions(arguments)) {
+            System.out.println("Repetitions are not allowed");
+            System.exit(0);
+        }
+
 
         if (!isCommand(arguments[0])) {
             showCommands();
@@ -40,21 +44,56 @@ class Administrator {
 
         String command = arguments[0];
         Command op = new Command();
+
+
         Command.srcFile = arguments[1];
 
         ICommand cm = op.getCommand(command);
 
+//        callOptions();
 
         cm.verbose();
 
         cm.process();
 
+        op.checkOptions(cm);
+
 
     }
+
 
     static boolean isCommand(String strs) {
 
         return Arrays.asList(commands).contains(strs);
+    }
+
+    public static boolean containsRepetitions(String[] strs) {
+
+        boolean contains = false;
+        for (int i = 0; i < strs.length; i++) {
+            for (int j = 0; j < strs.length; j++) {
+                if (i != j && strs[i].equals(strs[j])) {
+
+                    contains = true;
+                    break;
+                }
+            }
+        }
+
+        return contains;
+
+    }
+
+//    static void callOptions(Command cm, String[] strs) {
+//
+//
+//
+//
+//    }
+
+    static boolean isOption(String[] strs) {
+
+        return isHelp(strs) && isVerbose(strs) && isBanner(strs);
     }
 
     static boolean isHelp(String[] strs) {

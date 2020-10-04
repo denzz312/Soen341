@@ -15,6 +15,7 @@ interface ICommand {
     void printChars();
 
 }
+
 public class Command {
 
     static String srcFile;
@@ -24,18 +25,17 @@ public class Command {
     boolean bannerIsActive = false;
 
 
+    public ICommand getCommand(String str) {
 
-    public ICommand getCommand(String str){
-
-        if (str.equals("charcount")){
+        if (str.equals("charcount")) {
             return new CharCount();
-        }else if (str.equals("linecount")){
+        } else if (str.equals("linecount")) {
             return new LineCount();
-        }else if (str.equals("wordcount")){
+        } else if (str.equals("wordcount")) {
             return new WordCount();
-        }else if (str.equals("copy")){
+        } else if (str.equals("copy")) {
             return new Copy();
-        }else if(str.equals("wc")) {
+        } else if (str.equals("wc")) {
             return new WC();
         }
 
@@ -57,12 +57,19 @@ public class Command {
         return sc;
     }
 
-    private void checkOptions(){
+    public void checkOptions(ICommand cm) {
 
-
+        if (verboseIsActive) {
+            cm.printChars();
+        }
+        if (helperIsActive) {
+            cm.helper();
+        }
+        if (bannerIsActive) {
+            cm.banner();
+        }
 
     }
-
 
 
 }
