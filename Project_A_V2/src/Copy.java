@@ -46,6 +46,11 @@ public class Copy implements ICommand {
 
     }
 
+    @Override
+    public void checkOptions() {
+
+    }
+
     public void copy(String[] args) {
 
     }

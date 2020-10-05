@@ -44,13 +44,15 @@ public class WordCount extends Counter implements ICounter {
 
         while (sc.hasNext()) {
             word = sc.next();
-            System.out.println(word);
+//            System.out.println(word);
             nWords++;
         }
 
         sc.close();
 
         System.out.printf("%d word(s)\n", nWords);
+
+        checkOptions();
 
 
 
@@ -60,6 +62,19 @@ public class WordCount extends Counter implements ICounter {
     }
 
 
+    public void checkOptions() {
+
+        if (verboseIsActive) {
+            this.printChars();
+        }
+        if (helperIsActive) {
+            this.helper();
+        }
+        if (bannerIsActive) {
+            this.banner();
+        }
+
+    }
 
 
     public void printChars(){

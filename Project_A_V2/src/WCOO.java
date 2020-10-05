@@ -1,11 +1,18 @@
+
 import java.io.*;
 
 
-public class WC implements ICounter {
+public class WCOO extends Counter implements ICounter {
 
     public static boolean isSpace(final int c) {
         return (c == ' ' || c == '\t');
     }
+
+    WordCount w = new WordCount();
+    CharCount c = new CharCount();
+    LineCount l = new LineCount();
+
+    Counter[] counters = new Counter[3];
 
     public void helper() {
 
@@ -20,7 +27,9 @@ public class WC implements ICounter {
     @Override
     public void verbose() {
 
-        System.out.println("Not defined yet");
+        w.verbose();
+        c.verbose();
+        l.verbose();
 
     }
 
@@ -36,13 +45,25 @@ public class WC implements ICounter {
     @Override
     public void process() {
 
-
+        w.process();
+        c.process();
+        l.process();
     }
 
     @Override
     public void printChars() {
 
+        w.printChars();
+        c.printChars();
+        l.printChars();
+
     }
+
+    @Override
+    public void checkOptions() {
+
+    }
+
 
 
 //    public static void main(final String[] args) throws IOException {

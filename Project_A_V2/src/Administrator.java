@@ -12,9 +12,9 @@ import java.util.Scanner;
 class Administrator {
 
     static String[] commands = {"charcount", "copy", "linecount", "wordcount", "wc"};
-    static String[] helpOption = {"-?", "-h", "-help", "List a summary of all options and their arguments."};
-    static String[] verboseOption = {"-v", "-verbose", "Enable verbose output."};
-    static String[] bannerOption = {"-b", "-banner", "Print the application's banner."};
+    static String[] helpOption = {"-?", "-h", "-help"};
+    static String[] verboseOption = {"-v", "-verbose"};
+    static String[] bannerOption = {"-b", "-banner"};
     static String[][] options = {helpOption, verboseOption, bannerOption};
 
 
@@ -53,10 +53,10 @@ class Administrator {
 //        callOptions();
 
         cm.verbose();
-
         cm.process();
 
-        op.checkOptions(cm);
+
+//        op.checkOptions();
 
 
     }

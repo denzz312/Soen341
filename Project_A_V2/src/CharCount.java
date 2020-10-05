@@ -41,13 +41,15 @@ class CharCount extends Counter implements ICounter {
 
         while (sc.hasNext()) {
             chars = sc.next();
-            System.out.println(chars);
+//            System.out.println(chars);
             nChars += chars.length();
         }
 
         sc.close();
 
         System.out.printf("%d characters\n", nChars);
+
+        checkOptions();
 
 
 
@@ -60,6 +62,21 @@ class CharCount extends Counter implements ICounter {
 
         for (int n = 0; n < nChars; n++) {
             System.out.print("c");
+        }
+
+    }
+
+    @Override
+    public void checkOptions() {
+
+        if (verboseIsActive) {
+            this.printChars();
+        }
+        if (helperIsActive) {
+            this.helper();
+        }
+        if (bannerIsActive) {
+            this.banner();
         }
 
     }

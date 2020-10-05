@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class LineCount extends Counter implements ICounter {
 
-    private static int EOF = -1;
-    private static String srcFilename = "<srcFilename>";
+
+    static int nLines = 0;
 
     public void helper() {
 
@@ -23,7 +23,7 @@ public class LineCount extends Counter implements ICounter {
     @Override
     public void verbose() {
 
-        System.out.println("Not defined yet");
+        verboseIsActive = true;
 
     }
 
@@ -41,11 +41,10 @@ public class LineCount extends Counter implements ICounter {
 
         Scanner sc = getScanner(srcFile);
         String line = "";
-        int nLines = 0;
 
         while (sc.hasNextLine()) {
             line = sc.nextLine();
-            System.out.println(line);
+//            System.out.println(line);
             nLines++;
         }
 
@@ -53,11 +52,31 @@ public class LineCount extends Counter implements ICounter {
 
         System.out.printf("%d line(s)\n", nLines);
 
+        checkOptions();
+
 
     }
 
     @Override
     public void printChars() {
+        for (int i = 0; i < nLines; i++) {
+            System.out.print("l");
+        }
+
+    }
+
+    @Override
+    public void checkOptions() {
+
+        if (verboseIsActive) {
+            this.printChars();
+        }
+        if (helperIsActive) {
+            this.helper();
+        }
+        if (bannerIsActive) {
+            this.banner();
+        }
 
     }
 

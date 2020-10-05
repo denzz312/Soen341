@@ -14,6 +14,8 @@ interface ICommand {
 
     void printChars();
 
+    void checkOptions();
+
 }
 
 public class Command {
@@ -36,7 +38,7 @@ public class Command {
         } else if (str.equals("copy")) {
             return new Copy();
         } else if (str.equals("wc")) {
-            return new WC();
+            return new WCOO();
         }
 
         System.out.println("Please enter an allowed command");
@@ -48,7 +50,7 @@ public class Command {
     Scanner getScanner(String file) {
 
         Scanner sc = null;
-        System.out.println("srcFilename = '" + file + "'");
+        System.out.println("\nsrcFilename = '" + file + "'");
         try {
             sc = new Scanner(new File("src/" + file));
         } catch (FileNotFoundException e) {
@@ -57,19 +59,6 @@ public class Command {
         return sc;
     }
 
-    public void checkOptions(ICommand cm) {
-
-        if (verboseIsActive) {
-            cm.printChars();
-        }
-        if (helperIsActive) {
-            cm.helper();
-        }
-        if (bannerIsActive) {
-            cm.banner();
-        }
-
-    }
 
 
 }
