@@ -1,13 +1,10 @@
-import java.io.*;
-import java.util.Arrays;
-import java.util.Scanner;
 
 /**
- * IAdministrator
+ * This class is used to parse the arguments and call required functions
  */
-// public interface IAdministrator {
+import java.util.Arrays;
 
-// }
+
 
 class Administrator {
 
@@ -22,9 +19,9 @@ class Administrator {
     public static void administer(String[] arguments) {
 
 
-        for (String argument : arguments) {
-            System.out.println(argument);
-        }
+//        for (String argument : arguments) {
+//            System.out.println(argument);
+//        }
 
         if (containsRepetitions(arguments)) {
             System.out.println("Repetitions are not allowed");
@@ -44,19 +41,34 @@ class Administrator {
 
         String command = arguments[0];
         Command op = new Command();
+        ICommand cm = op.getCommand(command);
 
+
+        int source = -1;
 
         Command.srcFile = arguments[1];
 
-        ICommand cm = op.getCommand(command);
+        for (int i = 1; i < arguments.length; i++) {
+            if (arguments[i].contains(".txt")) {
+                Command.srcFile = arguments[i];
+                source = i;
+                break;
+            }
+        }
 
-//        callOptions();
 
-        cm.verbose();
+        if (command.equals("copy") && source!=-1) {
+            if (arguments[source].contains(".txt") && arguments[source + 1].contains(".txt")) {
+                Command.dstFile = arguments[source + 1];
+            }else {
+                System.out.println("For the copy command a source file and a destination file must be consecutive");
+            }
+        }
+
+        checkOptions(cm, arguments);
+
+        if (hasTxt(arguments))
         cm.process();
-
-
-//        op.checkOptions();
 
 
     }
@@ -84,16 +96,36 @@ class Administrator {
 
     }
 
-//    static void callOptions(Command cm, String[] strs) {
-//
-//
-//
-//
-//    }
+    static void checkOptions(ICommand cm, String[] strs) {
+
+        if (isHelp(strs)) {
+            cm.helper();
+        }
+        if (isVerbose(strs)) {
+            if (!hasTxt(strs)) {
+
+                System.out.println("To activate verbose there should be a source file");
+                showCommands();
+                System.exit(0);
+
+            }
+            cm.verbose();
+        }
+        if (isBanner(strs)) {
+            cm.banner();
+        }
+
+
+    }
+
+    static void callOptions(Command cm, String str) {
+
+
+    }
 
     static boolean isOption(String[] strs) {
 
-        return isHelp(strs) && isVerbose(strs) && isBanner(strs);
+        return isHelp(strs) || isVerbose(strs) || isBanner(strs);
     }
 
     static boolean isHelp(String[] strs) {
@@ -108,15 +140,33 @@ class Administrator {
         return isHelp;
     }
 
+    static boolean hasTxt(String[] strs) {
+        boolean hasTxt = false;
+
+
+        for (int i = 1; i < strs.length; i++) {
+            if (strs[i].contains(".txt")) {
+                hasTxt = true;
+                break;
+
+            }
+        }
+
+
+        return hasTxt;
+    }
+
     static boolean isVerbose(String[] strs) {
 
         boolean isVerbose = false;
+        boolean hasTxt = false;
         for (String str : strs) {
             if (Arrays.asList(verboseOption).contains(str)) {
                 isVerbose = true;
                 break;
             }
         }
+
         return isVerbose;
     }
 
@@ -135,11 +185,11 @@ class Administrator {
     public static void showCommands() {
 
         System.out.println("\n");
-        System.out.println("CharCount:\t" + "Usage: java CharCount.java <src>");
-        System.out.println("Copy:\t\t" + "Usage: java Copy.java <src> <dst>");
-        System.out.println("LineCount:\t" + "Usage: java LineCount.java <src>");
-        System.out.println("WordCount:\t" + "Usage: java WordCount.java <src>");
-        System.out.println("WC:\t\t" + "Usage: java WC.java <src> { <src> }");
+        System.out.println("CharCount:\t" + "Usage: charcount <src>");
+        System.out.println("Copy:\t\t" + "Usage: copy <src> <dst>");
+        System.out.println("LineCount:\t" + "Usage: linecount <src>");
+        System.out.println("WordCount:\t" + "Usage: wordcount <src>");
+        System.out.println("WC:\t\t\t" + "Usage: wc <src> { <src> }");
         System.out.println("\n");
 
     }

@@ -8,9 +8,11 @@ class CharCount extends Counter implements ICounter {
     @Override
     public void helper() {
 
-        System.out.println("CharCount Version 1.0\n" +
-                "Copyright (C) ABC Inc 2020. All Rights Reserved. \n" +
-                "Written by Deniz Dinchdonmez");
+        System.out.println("\n");
+
+        System.out.println("CharCount:\t\t" + "Usage: charcount <src>");
+
+        System.out.println("\n");
 
     }
 
@@ -37,6 +39,7 @@ class CharCount extends Counter implements ICounter {
         Scanner sc = getScanner(srcFile);
 
         // Execute the character count.
+        // in this program \n
         String chars;
 
         while (sc.hasNext()) {
@@ -47,7 +50,7 @@ class CharCount extends Counter implements ICounter {
 
         sc.close();
 
-        System.out.printf("%d characters\n", nChars);
+        System.out.printf("%d character(s)\n", nChars);
 
         checkOptions();
 
@@ -63,6 +66,8 @@ class CharCount extends Counter implements ICounter {
         for (int n = 0; n < nChars; n++) {
             System.out.print("c");
         }
+        System.out.println();
+
 
     }
 

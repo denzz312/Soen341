@@ -1,18 +1,12 @@
-
-import java.io.*;
-
-
+/**
+ WCOO class and all required methods. This class just creates and calls methods from other 3 classes
+ */
 public class WCOO extends Counter implements ICounter {
 
-    public static boolean isSpace(final int c) {
-        return (c == ' ' || c == '\t');
-    }
 
     WordCount w = new WordCount();
     CharCount c = new CharCount();
     LineCount l = new LineCount();
-
-    Counter[] counters = new Counter[3];
 
     public void helper() {
 
@@ -64,88 +58,4 @@ public class WCOO extends Counter implements ICounter {
 
     }
 
-
-
-//    public static void main(final String[] args) throws IOException {
-//
-//        int totalLines = 0;
-//        int totalWords = 0;
-//        int totalChars = 0;
-//
-//        boolean isHelper = args[0].equals("-?") || args[0].equals("-h") || args[0].equals("-help");
-//
-////        if (isHelper) {
-////            helper();
-////            return;
-////        }
-//
-//        if (args.length < 2) {
-//            System.out.println("Usage: WC <src> { <src> }\n");
-//            return;
-//        }
-//
-//        for (int i = 0; i < args.length; i++) {
-//
-//            if (args[i] != null) { // Check <src>
-//                srcFilename = args[i];
-//                System.out.println("wc: srcFilename = " + srcFilename + "");
-//                srcFile = new File(srcFilename);
-//                if (!srcFile.canRead()) {
-//                    System.out.println("wc: Cannot open srcFile '" + srcFilename + "'");
-//                    return;
-//                }
-//            } else {
-//                System.out.println("wc: [OK] srcFilename = '" + srcFilename + "'");
-//            }
-//
-//            final FileInputStream srcStream = new FileInputStream(srcFile);
-//
-//            int c;
-//            int nChars, nLines, nWords;
-//            boolean inWord = false;
-//            nChars = nLines = nWords = 0;
-//
-//            while ((c = srcStream.read()) != EOF) {
-//
-//                // Count characters.
-//                nChars++;
-//
-//                // Count lines.
-//                if (c == '\n')
-//                    ++nLines;
-//
-//                // Count words.
-//                if (!isSpace(c)) {
-//
-//                    if (!inWord) {
-//
-//                        inWord = true;
-//                        ++nWords;
-//                    }
-//
-//                } else {
-//
-//                    inWord = false;
-//
-//                }
-//
-//            }
-//
-//            srcStream.close();
-//
-//            // Print the result of the source file.
-//            System.out.printf("%s: %d lines, %d words, %d chars\n", srcFilename, nLines, nWords, nChars);
-//
-//            totalLines += nLines;
-//            totalWords += nWords;
-//            totalChars += nChars;
-//
-//        }
-//
-//        if (args.length > 2) {
-//            System.out.printf("**Total: %d lines, %d words, %d chars\n", totalLines, totalWords, totalChars);
-//        }
-//        return;
-//
-//    }
 }

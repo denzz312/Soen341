@@ -1,3 +1,7 @@
+/**
+ Driver class
+ */
+
 import java.util.Scanner;
 
 public class Driver {
@@ -10,11 +14,6 @@ public class Driver {
         sc.close();
         Administrator adm = new Administrator();
         adm.administer(arguments);
-
-
-
-
-
 
     }
 }

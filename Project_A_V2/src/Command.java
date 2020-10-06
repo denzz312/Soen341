@@ -1,5 +1,10 @@
+/**
+* this interface and class are used to create command objects
+* */
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 interface ICommand {
@@ -50,13 +55,26 @@ public class Command {
     Scanner getScanner(String file) {
 
         Scanner sc = null;
-        System.out.println("\nsrcFilename = '" + file + "'");
+//        System.out.println("\nsrcFilename = '" + file + "'");
         try {
             sc = new Scanner(new File("src/" + file));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         return sc;
+    }
+
+    PrintWriter getWriter(String destination){
+
+        PrintWriter pw = null;
+        try {
+            pw = new PrintWriter("src/"+destination);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return pw;
+
     }
 
 

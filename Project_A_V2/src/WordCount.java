@@ -1,4 +1,6 @@
-import java.io.*;
+/**
+ Wordcount class and all required methods
+ */
 import java.util.Scanner;
 
 
@@ -6,16 +8,14 @@ public class WordCount extends Counter implements ICounter {
 
     int nWords = 0;
 
-    public static boolean isSpace(int c) {
-
-        return (c == ' ' || c == '\t' || c == '\n');
-    }
 
     public void helper() {
 
-        System.out.println("WordCount Version 1.0\n" +
-                "Copyright (C) ABC Inc 2020. All Rights Reserved. \n" +
-                "Written by Deniz Dinchdonmez");
+        System.out.println("\n");
+
+        System.out.println("WordCount:\t\t" + "Usage: wordcount <src>");
+
+        System.out.println("\n");
 
     }
 
@@ -81,6 +81,8 @@ public class WordCount extends Counter implements ICounter {
         for (int i = 0; i < nWords; i++) {
             System.out.print("w");
         }
+        System.out.println();
+
     }
 
 }
