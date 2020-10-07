@@ -29,9 +29,8 @@ public class WordCount extends Counter implements ICounter {
     @Override
     public void banner() {
 
-        System.out.println("WordCount Version 1.0\n" +
-                "Copyright (C) ABC Inc 2020. All Rights Reserved. \n" +
-                "Written by Deniz Dinchdonmez");
+        System.out.println("WordCount Version 1.0");
+        bannerFooter();
 
     }
 

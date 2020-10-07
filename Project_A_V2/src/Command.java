@@ -77,6 +77,10 @@ public class Command {
 
     }
 
+    public void bannerFooter(){
+        System.out.println("Copyright (C) ABC Inc 2020. All Rights Reserved. " +
+                "\nWritten by Deniz Dinchdonmez");
+    }
 
 
 }
